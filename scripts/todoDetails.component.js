@@ -5,10 +5,12 @@
 		.component('todoDetails', {
 			controller: TodoDetailsController,
 			template: `
-				Name: <input ng-model="$ctrl.todo.name">
+				<form>
+					Name: <input ng-model="$ctrl.todo.name">
 
-				<br />
-				<button ng-click="$ctrl.save()">Save changes and back to list</button>
+					<br />
+					<button ng-click="$ctrl.save()">Save changes and back to list</button>
+				</form>
 			`
 		});
 
