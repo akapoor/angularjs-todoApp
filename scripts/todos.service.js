@@ -4,6 +4,17 @@
 	angular.module('todoApp')
 		.factory('todos', function (localStorageService) {
 
+			// When the app starts up, if localStorage is empty, throw a few demo todos in there.
+			// Remove for production, but this makes testing easier until the ability to add
+			// a todo is added to the interface.
+			if(!angular.isArray(localStorageService.get('todos'))) {
+				localStorageService.set('todos', [
+					{ id: 0, name: 'Pack my lunch' },
+					{ id: 1, name: 'Walk the dog' },
+					{ id: 2, name: 'Go for a run' }
+				]);
+			}
+
 			return {
 				getTodos: getTodos,
 				getTodo: getTodo,
