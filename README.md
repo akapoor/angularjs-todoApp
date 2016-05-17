@@ -1,10 +1,12 @@
 # Todo Application
 Manages todos. This is an interview application created for Brand Networks
 
-## Contributing
-1. Fork the repository in GitHub.
-2. Make changes to your version of the project and commit them.
-3. When you're done, submit a pull request to the original project.
+## Tasks
+1. Clone the repository locally (don't fork).
+2. Add the ability to "create" a todo.
+3. There is a bug with editing a todo. Identify and fix the bug.
+4. Add the ability to delete a todo.
+5. Once you've completed steps 1-4, create a new repository of your own and push the local repo with your changes up to your new repository.
 
 ## Requirements
 To avoid any tooling or build script requirements for this project, it is assumed
