@@ -6,6 +6,7 @@
 			controller: TodoListController,
 			template: `
 				<h2>Your Todos</h2>
+				<a ui-sref=todoCreate>Create New Todo</a>
 				<ul>
 					<li ng-repeat="todo in $ctrl.todos track by todo.id">
 						<a ui-sref="todoDetails({id: todo.id})">{{todo.name}}</a>

@@ -10,6 +10,7 @@
 
 					<br />
 					<button ng-click="$ctrl.save()">Save changes and back to list</button>
+					<button ng-click="$ctrl.delete()">Delete todo</button>
 				</form>
 			`
 		});
@@ -23,6 +24,11 @@
 
 		this.save = function () {
 			todos.editTodo(this.todo);
+			$state.go('todos');
+		}
+
+		this.delete = function () {
+			todos.deleteTodo(this.todo);
 			$state.go('todos');
 		}
 

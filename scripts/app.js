@@ -11,8 +11,13 @@ angular.module('todoApp', [ 'ui.router', 'LocalStorageModule' ])
 				url: '/todos',
 				component: 'todoList'
 			})
+			.state('todoCreate', {
+				url: '/todos/create',
+				component: 'todoCreate'
+			})
 			.state('todoDetails', {
-				url: '/todos/{id}',
+				url: '/todos/{id:int}',
 				component: 'todoDetails'
 			})
+			
 	});

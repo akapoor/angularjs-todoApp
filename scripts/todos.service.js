@@ -19,7 +19,8 @@
 				getTodos: getTodos,
 				getTodo: getTodo,
 				addTodo: addTodo,
-				editTodo: editTodo
+				editTodo: editTodo,
+				deleteTodo: deleteTodo
 			};
 
 			function getTodos () {
@@ -39,26 +40,42 @@
 
 			function addTodo (todo) {
 				var todos = getTodos();
-				todos.push(todo);
+				var index = todos.length;
+				var newTodo = { id: index, name: todo }
+				todos.push(newTodo);
 				localStorageService.set('todos', todos);
 			}
 
 			function editTodo (todo) {
 				var todos = getTodos();
+				var todoIndex = getTodoIndex(todo);
+
+				todos.splice(todoIndex, 1, todo);
+				localStorageService.set('todos', todos);
+			}
+
+			function deleteTodo (todo) {
+				var todos = getTodos();
+				var todoIndex = getTodoIndex(todo);
+
+				todos.splice(todoIndex, 1);
+				localStorageService.set('todos', todos);
+			}
+
+			//Get the index of a todo in todos array
+			function getTodoIndex (todo) {
+				var todos = getTodos();
 				var todoIndex = -1;
 				for (var i = 0; i < todos.length; ++i) {
-					if (todos[i].id === id) {
+					if (todos[i].id === todo.id) { //BUG: id field wasn't called on the input todo 
 						todoIndex = i;
-						break;
+						return todoIndex;
 					}
 				}
 
 				if (todoIndex === -1) {
 					throw new Error('Can\'t find specified todo');
 				}
-
-				todos.splice(todoIndex, 1, todo);
-				localStorageService.set('todos', todos);
 			}
 		});
 
